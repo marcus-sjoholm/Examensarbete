@@ -5,6 +5,7 @@ const { host, userName, password, database, port, startPort } = credentials()
 const express = require("express")
 const app = express()
 const bcrypt = require("bcrypt")
+const path = require("path")
 
 const dataBase = mysql.createPool({
     connectionLimit: 10,
@@ -40,9 +41,13 @@ app.use(express.json())
 app.listen(startPort,
     () => console.log(`Server started on port: ${startPort}`))
 
+app.get('/', function(request, response){
+response.sendFile(path.join(__dirname + '/login.html'))
+})
+
 //CREATE USER
 app.post("/createUser", async (request, response) => {
-    const user = request.body.name;
+    const user = request.body.user;
     const cryptPassword = await bcrypt.hash(request.body.password, 10);
 
     dataBase.getConnection(async (error, connection) => {
@@ -56,12 +61,12 @@ app.post("/createUser", async (request, response) => {
 
         connection.query(searchQuery, async (error, result) => {
             errorHandler(error)
-            console.log(">> Search Results <<")
+            console.log(">> Search result <<")
             console.log(result.length)
 
             if (result.length != 0) {
                 connection.release()
-                console.log(">> User already exists <<")
+                console.log(">> User already exist <<")
                 response.sendStatus(409)
             }
             else {
@@ -69,7 +74,7 @@ app.post("/createUser", async (request, response) => {
                     connection.release()
 
                     errorHandler(error)
-                    console.log(">> Created new user <<")
+                    console.log(">> Created user <<")
                     console.log(result.insertId)
                     response.sendStatus(201)
                 })
@@ -78,9 +83,9 @@ app.post("/createUser", async (request, response) => {
     })
 })
 
-//LOGIN (AUTHENTICATE USER)
+//AUTHENTICATE USER
 app.post("/login", (request, response) => {
-    const user = request.body.name
+    const user = request.body.user
     const password = request.body.password
 
     dataBase.getConnection(async (error, connection) => {
@@ -106,10 +111,11 @@ app.post("/login", (request, response) => {
                 if (await bcrypt.compare(password, cryptPassword)) {
                     console.log(">> Login was successful <<")
                     response.send(`${user} logged in!`)
+                    response.redirect('/index')
                 }
                 else {
-                    console.log(">> Password Incorrect <<")
-                    response.send(">> Password Incorrect <<")
+                    console.log(">> Password incorrect <<")
+                    response.send(">> Password incorrect <<")
                 }
             }
         })

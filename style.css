@@ -1,0 +1,169 @@
+html {
+    position: relative;
+    min-height: 100%;
+    background-color: #525252;
+}
+
+body {
+    background-color: #525252;
+    margin: 0 0 50px;
+    padding: 0px;
+}
+
+.buttons {
+    position: relative;
+    width: 350px;
+    color: rgb(0, 0, 0);
+    margin: 10px auto;
+}
+
+.buttons a {
+    position: relative;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    display: block;
+    padding: 4px;
+    border-radius: 8px;
+    -moz-box-shadow: 0px 9px 0px rgb(0, 0, 0), 0px 9px 25px rgba(0, 0, 0, .7);
+    box-shadow: 0px 9px 0px rgb(0, 0, 0), 0px 9px 25px rgba(0, 0, 0, .7);
+    margin: 20px auto;
+    width: 130px;
+    text-align: center;
+
+    -moz-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+.buttons a:active {
+    -moz-box-shadow: 0px 3px 0px rgb(0, 0, 0), 0px 3px 6px rgba(0, 0, 0, .9);
+    box-shadow: 0px 3px 0px rgb(0, 0, 0), 0px 3px 6px rgba(0, 0, 0, .9);
+}
+
+#start {
+    float: left;
+}
+
+#reset {
+    float: right;
+}
+
+.centered {
+    font: normal 21px/normal 'Times New Roman', Times, serif;
+    overflow: hidden;
+    position: relative;
+    color: rgb(255, 255, 255);
+    height: 450px;
+    width: 650px;
+    margin: 10px auto;
+    padding-top: 20px;
+}
+
+.dealer {
+    color: black;
+    text-align: center;
+}
+
+.dealersCards,
+.playersCards {
+    overflow: hidden;
+    margin: auto;
+    display: inline-block;
+    padding: 10px 40px 10px 10px;
+    color: grey;
+
+}
+
+.results ul {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+}
+
+.results li {
+    position: relative;
+    display: block;
+    width: 30px;
+    float: left;
+}
+
+.results img {
+    height: 90px;
+    display: block;
+}
+
+.player {
+    margin-top: 15px;
+    color: white;
+    text-align: center;
+}
+
+.players_cards {
+    color: rgb(255, 255, 255);
+}
+
+.playerScore {
+    position: relative;
+    background-color: black;
+    height: 30px;
+    width: 100px;
+    margin: auto;
+    bottom: 140px;
+    border-radius: 4px;
+    -moz-box-shadow: 0px 9px 25px rgba(0, 0, 0, .7);
+    box-shadow: 0px 9px 25px rgba(0, 0, 0, .7);
+
+}
+
+.playerScore p {
+    padding-top: 5px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+}
+
+.hitOrStandButtons {
+    position: relative;
+    width: 250px;
+    color: rgb(255, 255, 255);
+    margin: auto;
+    bottom: 130px;
+}
+
+.hitOrStandButtons a {
+    position: relative;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    display: block;
+    padding: 15px 10px 0px 10px;
+    border-radius: 20px;
+    -moz-box-shadow: 0px 9px 0px rgb(0, 0, 0), 0px 9px 25px rgba(0, 0, 0, .7);
+    box-shadow: 0px 9px 0px rgb(0, 0, 0), 0px 9px 25px rgba(0, 0, 0, .7);
+    margin: 10px auto;
+    width: 50px;
+    height: 35px;
+    text-align: center;
+
+    -moz-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+.hitOrStandButtons a:active {
+    -moz-box-shadow: 0px 3px 0px rgb(0, 0, 0), 0px 3px 6px rgba(0, 0, 0, .9);
+    box-shadow: 0px 3px 0px rgb(0, 0, 0), 0px 3px 6px rgba(0, 0, 0, .9);
+}
+
+#hit {
+    float: left;
+}
+
+#stand {
+    float: right;
+}
