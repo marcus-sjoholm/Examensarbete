@@ -47,8 +47,9 @@ response.sendFile(path.join(__dirname + '/login.html'))
 
 //CREATE USER
 app.post("/createUser", async (request, response) => {
-    const user = request.body.user;
+    const user = request.body.user
     const cryptPassword = await bcrypt.hash(request.body.password, 10);
+    //const password = request.body.password
 
     dataBase.getConnection(async (error, connection) => {
         errorHandler(error)
@@ -83,7 +84,7 @@ app.post("/createUser", async (request, response) => {
     })
 })
 
-//AUTHENTICATE USER
+//LOGIN USER
 app.post("/login", (request, response) => {
     const user = request.body.user
     const password = request.body.password
